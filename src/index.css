@@ -2,41 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* SafeSpace Mental Health Platform Design System
+All colors MUST be HSL - Dark theme optimized for calm, supportive mental health environment
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Dark theme base - calming deep blues and grays */
+    --background: 220 26% 6%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 222 28% 8%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 222 28% 8%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Supportive teal/blue primary - calming and trustworthy */
+    --primary: 195 100% 65%;
+    --primary-foreground: 220 26% 6%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Soft purple secondary - therapeutic and gentle */
+    --secondary: 260 20% 25%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 222 28% 12%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Gentle green accent - growth and healing */
+    --accent: 155 60% 45%;
+    --accent-foreground: 220 26% 6%;
 
-    --destructive: 0 84.2% 60.2%;
+    /* Soft warning colors */
+    --destructive: 0 75% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 222 28% 15%;
+    --input: 222 28% 12%;
+    --ring: 195 100% 65%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Mental health specific colors */
+    --healing: 155 60% 45%;
+    --calm: 195 100% 65%;
+    --support: 260 50% 60%;
+    --safe: 120 40% 50%;
+    --emergency: 0 85% 65%;
+
+    /* Gradients for beautiful UI */
+    --gradient-primary: linear-gradient(135deg, hsl(195 100% 65%), hsl(260 50% 60%));
+    --gradient-healing: linear-gradient(135deg, hsl(155 60% 45%), hsl(195 100% 65%));
+    --gradient-calm: linear-gradient(180deg, hsl(220 26% 6%), hsl(222 28% 8%));
+
+    /* Shadows for depth */
+    --shadow-soft: 0 4px 20px -4px hsl(195 100% 65% / 0.1);
+    --shadow-glow: 0 0 30px hsl(195 100% 65% / 0.15);
+
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
 

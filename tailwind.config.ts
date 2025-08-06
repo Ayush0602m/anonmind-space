@@ -52,6 +52,12 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// Mental health specific colors
+				healing: 'hsl(var(--healing))',
+				calm: 'hsl(var(--calm))',
+				support: 'hsl(var(--support))',
+				safe: 'hsl(var(--safe))',
+				emergency: 'hsl(var(--emergency))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
