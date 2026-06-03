@@ -3,118 +3,132 @@
 @tailwind utilities;
 
 /* SafeSpace Mental Health Platform Design System
-All colors MUST be HSL - Dark theme optimized for calm, supportive mental health environment
+All colors MUST be HSL - AMOLED Black Theme
 */
 
 @layer base {
   :root {
-    /* Dark theme base - calming deep blues and grays */
-    --background: 220 26% 6%;
+    /* Pure black AMOLED theme */
+    --background: 0 0% 0%;
     --foreground: 210 40% 98%;
 
-    --card: 222 28% 8%;
+    --card: 0 0% 4%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222 28% 8%;
+    --popover: 0 0% 4%;
     --popover-foreground: 210 40% 98%;
 
-    /* Supportive teal/blue primary - calming and trustworthy */
+    /* Calm cyan primary */
     --primary: 195 100% 65%;
-    --primary-foreground: 220 26% 6%;
+    --primary-foreground: 0 0% 0%;
 
-    /* Soft purple secondary - therapeutic and gentle */
-    --secondary: 260 20% 25%;
+    /* Soft purple secondary */
+    --secondary: 260 20% 20%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 222 28% 12%;
+    --muted: 0 0% 8%;
     --muted-foreground: 215 20% 65%;
 
-    /* Gentle green accent - growth and healing */
+    /* Healing green accent */
     --accent: 155 60% 45%;
-    --accent-foreground: 220 26% 6%;
+    --accent-foreground: 0 0% 0%;
 
-    /* Soft warning colors */
     --destructive: 0 75% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 222 28% 15%;
-    --input: 222 28% 12%;
+    --border: 0 0% 12%;
+    --input: 0 0% 8%;
     --ring: 195 100% 65%;
 
     --radius: 0.75rem;
 
-    /* Mental health specific colors */
+    /* Mental health colors */
     --healing: 155 60% 45%;
     --calm: 195 100% 65%;
     --support: 260 50% 60%;
     --safe: 120 40% 50%;
     --emergency: 0 85% 65%;
 
-    /* Gradients for beautiful UI */
-    --gradient-primary: linear-gradient(135deg, hsl(195 100% 65%), hsl(260 50% 60%));
-    --gradient-healing: linear-gradient(135deg, hsl(155 60% 45%), hsl(195 100% 65%));
-    --gradient-calm: linear-gradient(180deg, hsl(220 26% 6%), hsl(222 28% 8%));
+    /* AMOLED gradients */
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(195 100% 65%),
+      hsl(260 50% 60%)
+    );
 
-    /* Shadows for depth */
+    --gradient-healing: linear-gradient(
+      135deg,
+      hsl(155 60% 45%),
+      hsl(195 100% 65%)
+    );
+
+    --gradient-calm: linear-gradient(
+      180deg,
+      hsl(0 0% 0%),
+      hsl(0 0% 4%)
+    );
+
+    /* Glow effects */
     --shadow-soft: 0 4px 20px -4px hsl(195 100% 65% / 0.1);
     --shadow-glow: 0 0 30px hsl(195 100% 65% / 0.15);
 
-    /* Transitions */
+    /* Smooth animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
-    --sidebar-background: 0 0% 98%;
+    /* Sidebar */
+    --sidebar-background: 0 0% 3%;
+    --sidebar-foreground: 210 40% 98%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 195 100% 65%;
+    --sidebar-primary-foreground: 0 0% 0%;
 
-    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-accent: 0 0% 8%;
+    --sidebar-accent-foreground: 210 40% 98%;
 
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-border: 0 0% 12%;
+    --sidebar-ring: 195 100% 65%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 0 0% 0%;
     --foreground: 210 40% 98%;
 
-    --card: 222.2 84% 4.9%;
+    --card: 0 0% 4%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222.2 84% 4.9%;
+    --popover: 0 0% 4%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 195 100% 65%;
+    --primary-foreground: 0 0% 0%;
 
-    --secondary: 217.2 32.6% 17.5%;
+    --secondary: 260 20% 20%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 0 0% 8%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 155 60% 45%;
+    --accent-foreground: 0 0% 0%;
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 75% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 0 0% 12%;
+    --input: 0 0% 8%;
+    --ring: 195 100% 65%;
+
+    --sidebar-background: 0 0% 3%;
+    --sidebar-foreground: 210 40% 98%;
+
+    --sidebar-primary: 195 100% 65%;
+    --sidebar-primary-foreground: 0 0% 0%;
+
+    --sidebar-accent: 0 0% 8%;
+    --sidebar-accent-foreground: 210 40% 98%;
+
+    --sidebar-border: 0 0% 12%;
+    --sidebar-ring: 195 100% 65%;
   }
 }
 
@@ -123,7 +137,13 @@ All colors MUST be HSL - Dark theme optimized for calm, supportive mental health
     @apply border-border;
   }
 
+  html,
   body {
     @apply bg-background text-foreground;
+    min-height: 100vh;
+  }
+
+  body {
+    background-color: hsl(var(--background));
   }
 }

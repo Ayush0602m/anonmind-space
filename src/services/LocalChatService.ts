@@ -75,7 +75,7 @@ export class LocalChatService {
   }
 
   public getCurrentUser(): { id: string; username: string } {
-    let user = localStorage.getItem(LocalChatService.USER_KEY);
+    const user = localStorage.getItem(LocalChatService.USER_KEY);
     if (!user) {
       const newUser = {
         id: `user_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,

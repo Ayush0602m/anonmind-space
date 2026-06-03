@@ -4,13 +4,13 @@ import { Badge } from "@/components/ui/badge";
 import { Shield, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ChatSelector } from "@/components/chat/ChatSelector";
-import { ChatInterface } from "@/components/chat/ChatInterface";
+import { ChatInterface, type ChatMode } from "@/components/chat/ChatInterface";
 
 const ChatRooms = () => {
-  const [selectedRoom, setSelectedRoom] = useState<{ id: string; name: string } | null>(null);
+  const [selectedRoom, setSelectedRoom] = useState<{ id: string; name: string; mode: ChatMode } | null>(null);
 
-  const handleRoomSelect = (roomId: string, roomName: string) => {
-    setSelectedRoom({ id: roomId, name: roomName });
+  const handleRoomSelect = (roomId: string, roomName: string, mode: ChatMode) => {
+    setSelectedRoom({ id: roomId, name: roomName, mode });
   };
 
   const handleBackToRooms = () => {
@@ -26,7 +26,7 @@ const ChatRooms = () => {
             Back to Rooms
           </Button>
         </div>
-        <ChatInterface roomId={selectedRoom.id} roomName={selectedRoom.name} />
+        <ChatInterface roomId={selectedRoom.id} roomName={selectedRoom.name} mode={selectedRoom.mode} />
       </div>
     );
   }
@@ -35,10 +35,9 @@ const ChatRooms = () => {
     <div className="container mx-auto px-4 py-8">
       {/* Header */}
       <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold mb-4">Anonymous Chat Rooms</h1>
+        <h1 className="text-4xl font-bold mb-4">Join Chat</h1>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-          Connect with others who understand your journey. Multiple backend options available - 
-          from local demos to production-ready external services.
+          Connect with others who understand your journey.
         </p>
       </div>
 

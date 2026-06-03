@@ -6,39 +6,81 @@ import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { useToast } from "@/hooks/use-toast";
-import { Send, Users, Wifi, WifiOff, Settings } from "lucide-react";
+import { Send, Users, Wifi, WifiOff } from "lucide-react";
 import { LocalChatService, ChatMessage, ChatRoom } from "@/services/LocalChatService";
+import { WebSocketChatService } from "@/services/WebSocketChatService";
+
+export type ChatMode = "websocket" | "local";
 
 interface ChatInterfaceProps {
   roomId: string;
   roomName: string;
+  mode: ChatMode;
 }
 
-export const ChatInterface = ({ roomId, roomName }: ChatInterfaceProps) => {
+const getDefaultWebSocketUrl = () => {
+  const configuredUrl = import.meta.env.VITE_CHAT_WS_URL;
+  if (configuredUrl) return configuredUrl;
+
+  return "ws://localhost:3001";
+};
+
+export const ChatInterface = ({ roomId, roomName, mode }: ChatInterfaceProps) => {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [newMessage, setNewMessage] = useState("");
   const [currentUser, setCurrentUser] = useState<{ id: string; username: string } | null>(null);
-  const [isConnected, setIsConnected] = useState(true); // Local chat is always "connected"
+  const [isConnected, setIsConnected] = useState(mode === "local");
+  const [activeUsers, setActiveUsers] = useState(0);
   const [chatService] = useState(() => new LocalChatService());
+  const websocketServiceRef = useRef<WebSocketChatService | null>(null);
   const { toast } = useToast();
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    // Initialize user and join room
     const user = chatService.getCurrentUser();
     setCurrentUser(user);
+
+    if (mode === "websocket") {
+      const websocketService = new WebSocketChatService({
+        url: getDefaultWebSocketUrl(),
+      });
+      websocketServiceRef.current = websocketService;
+
+      const unsubscribe = websocketService.subscribe((state) => {
+        setIsConnected(state.connected);
+        setMessages(state.messages);
+        setActiveUsers(state.activeUsers.length);
+
+        if (state.error) {
+          toast({
+            title: "Chat connection issue",
+            description: state.error,
+            variant: "destructive",
+          });
+        }
+      });
+
+      websocketService.connect(user, roomId);
+
+      return () => {
+        unsubscribe();
+        websocketService.disconnect();
+        websocketServiceRef.current = null;
+      };
+    }
+
     chatService.joinRoom(roomId);
 
-    // Load existing messages
     const existingMessages = chatService.getRoomMessages(roomId);
     setMessages(existingMessages);
+    setIsConnected(true);
 
-    // Subscribe to room updates
     const unsubscribe = chatService.subscribe((rooms: ChatRoom[]) => {
       const currentRoom = rooms.find(room => room.id === roomId);
       if (currentRoom) {
         setMessages(currentRoom.messages);
+        setActiveUsers(currentRoom.activeUsers.length);
       }
     });
 
@@ -46,10 +88,9 @@ export const ChatInterface = ({ roomId, roomName }: ChatInterfaceProps) => {
       chatService.leaveRoom(roomId);
       unsubscribe();
     };
-  }, [roomId, chatService]);
+  }, [roomId, mode, chatService, toast]);
 
   useEffect(() => {
-    // Auto-scroll to bottom when new messages arrive
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
@@ -67,7 +108,20 @@ export const ChatInterface = ({ roomId, roomName }: ChatInterfaceProps) => {
       return;
     }
 
-    chatService.sendMessage(roomId, newMessage);
+    if (mode === "websocket") {
+      const sent = websocketServiceRef.current?.sendMessage(roomId, newMessage);
+      if (!sent) {
+        toast({
+          title: "Message not sent",
+          description: "The chat server is not connected yet.",
+          variant: "destructive",
+        });
+        return;
+      }
+    } else {
+      chatService.sendMessage(roomId, newMessage);
+    }
+
     setNewMessage("");
     inputRef.current?.focus();
   };
@@ -104,12 +158,7 @@ export const ChatInterface = ({ roomId, roomName }: ChatInterfaceProps) => {
             </Badge>
             <Badge variant="outline" className="text-xs">
               <Users className="w-3 h-3 mr-1" />
-              {messages.reduce((users, msg) => {
-                if (!users.includes(msg.username)) {
-                  users.push(msg.username);
-                }
-                return users;
-              }, [] as string[]).length} users
+              {activeUsers} users
             </Badge>
           </div>
         </div>
