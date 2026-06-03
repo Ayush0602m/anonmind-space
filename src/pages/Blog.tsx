@@ -101,8 +101,8 @@ const Blog = () => {
     <div className="container mx-auto px-4 py-8">
       {/* Header */}
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4">Mental Health Blog</h1>
-        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+        <h1 className="font-hero text-4xl md:text-5xl mb-4">Mental Health Blog</h1>
+        <p className="font-ui text-xl text-muted-foreground/90 max-w-3xl mx-auto leading-relaxed">
           Evidence-based insights, personal stories, and practical guidance for your mental health journey.
           Written by mental health professionals and community contributors.
         </p>
@@ -111,7 +111,7 @@ const Blog = () => {
       {/* Featured Posts */}
       {featuredPosts.length > 0 && (
         <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-6">Featured Articles</h2>
+          <h2 className="font-section text-2xl md:text-3xl mb-6">Featured Articles</h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {featuredPosts.map(post => (
               <Card key={post.id} className="hover:shadow-lg transition-all duration-300 cursor-pointer group">
@@ -169,7 +169,7 @@ const Blog = () => {
       {/* All Posts */}
       <section>
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold">All Articles</h2>
+          <h2 className="font-section text-2xl md:text-3xl">All Articles</h2>
           <div className="flex flex-wrap gap-2">
             {categories.map(category => (
               <Button
@@ -235,8 +235,8 @@ const Blog = () => {
       {/* Newsletter Signup */}
       <Card className="mt-12 bg-gradient-to-r from-primary/5 to-support/5 border-primary/20">
         <CardContent className="text-center py-8">
-          <h3 className="text-xl font-semibold mb-2">Stay Connected</h3>
-          <p className="text-muted-foreground mb-4 max-w-md mx-auto">
+          <h3 className="font-heading text-xl mb-2">Stay Connected</h3>
+          <p className="font-ui text-muted-foreground/90 mb-4 max-w-md mx-auto leading-relaxed">
             Get weekly mental health insights and community updates delivered to your inbox.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">

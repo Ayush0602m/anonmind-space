@@ -46,10 +46,10 @@ const Index = () => {
                 <Heart className="w-8 h-8 text-white" />
               </div>
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-support to-healing bg-clip-text text-transparent">
+            <h1 className="font-hero text-5xl md:text-6xl mb-6 bg-gradient-to-r from-primary via-support to-healing bg-clip-text text-transparent">
               SafeSpace
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
+            <p className="font-ui text-xl md:text-2xl text-muted-foreground/90 mb-8 leading-relaxed max-w-3xl mx-auto">
               Anonymous peer support for mental health. Connect, share, and heal together in a safe, 
               moderated environment where your story matters.
             </p>
@@ -80,8 +80,8 @@ const Index = () => {
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
                   <stat.icon className="w-6 h-6 text-primary" />
                 </div>
-                <div className="text-3xl font-bold text-primary mb-2">{stat.value}</div>
-                <div className="text-muted-foreground">{stat.label}</div>
+                <div className="font-heading text-3xl text-primary mb-2">{stat.value}</div>
+                <div className="font-ui text-muted-foreground/90">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -92,8 +92,8 @@ const Index = () => {
       <section className="py-20 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">How We Support You</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="font-section text-3xl md:text-4xl mb-4">How We Support You</h2>
+            <p className="font-ui text-xl text-muted-foreground/90 max-w-2xl mx-auto leading-relaxed">
               Multiple ways to find the support and resources you need for your mental health journey
             </p>
           </div>
@@ -131,32 +131,32 @@ const Index = () => {
             <div className="w-16 h-16 bg-safe/10 rounded-xl flex items-center justify-center mx-auto mb-6">
               <Shield className="w-8 h-8 text-safe" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Your Safety Is Our Priority</h2>
+            <h2 className="font-section text-3xl md:text-4xl mb-6">Your Safety Is Our Priority</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
               <div className="space-y-4">
-                <h3 className="text-xl font-semibold">Complete Anonymity</h3>
-                <p className="text-muted-foreground">
+                <h3 className="font-heading text-xl">Complete Anonymity</h3>
+                <p className="font-ui text-muted-foreground/90 leading-relaxed">
                   No personal information required. Share only what you're comfortable with. 
                   Your identity remains completely private.
                 </p>
               </div>
               <div className="space-y-4">
-                <h3 className="text-xl font-semibold">24/7 Moderation</h3>
-                <p className="text-muted-foreground">
+                <h3 className="font-heading text-xl">24/7 Moderation</h3>
+                <p className="font-ui text-muted-foreground/90 leading-relaxed">
                   Trained volunteers and AI systems monitor all interactions to ensure a safe, 
                   supportive environment free from harmful content.
                 </p>
               </div>
               <div className="space-y-4">
-                <h3 className="text-xl font-semibold">Crisis Intervention</h3>
-                <p className="text-muted-foreground">
+                <h3 className="font-heading text-xl">Crisis Intervention</h3>
+                <p className="font-ui text-muted-foreground/90 leading-relaxed">
                   Immediate access to professional crisis helplines and emergency resources 
                   when you need urgent support.
                 </p>
               </div>
               <div className="space-y-4">
-                <h3 className="text-xl font-semibold">Community Guidelines</h3>
-                <p className="text-muted-foreground">
+                <h3 className="font-heading text-xl">Community Guidelines</h3>
+                <p className="font-ui text-muted-foreground/90 leading-relaxed">
                   Clear, enforced guidelines ensure respectful interactions and create 
                   a healing environment for everyone.
                 </p>
@@ -170,10 +170,10 @@ const Index = () => {
       <section className="py-20 px-4">
         <div className="container mx-auto text-center">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="font-section text-3xl md:text-4xl mb-6">
               You Don't Have to Face This Alone
             </h2>
-            <p className="text-xl text-muted-foreground mb-8">
+            <p className="font-ui text-xl text-muted-foreground/90 mb-8 leading-relaxed">
               Join thousands of others who have found support, understanding, and hope in our community. 
               Take the first step towards healing today.
             </p>

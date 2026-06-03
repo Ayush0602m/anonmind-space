@@ -34,11 +34,9 @@ const ChatRooms = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       {/* Header */}
-      <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold mb-4">Join Chat</h1>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-          Connect with others who understand your journey.
-        </p>
+      <div className="text-left mt-10 mb-10">
+        <h1 className="font-hero text-white-400  md:text-5xl mb-5">Find your space</h1>
+        
       </div>
 
       {/* Safety Notice */}
@@ -46,8 +44,8 @@ const ChatRooms = () => {
         <CardContent className="flex items-center space-x-4 pt-6">
           <Shield className="w-8 h-8 text-support flex-shrink-0" />
           <div>
-            <h3 className="font-semibold mb-1">Safe Space Guidelines</h3>
-            <p className="text-sm text-muted-foreground">
+            <h3 className="font-heading mb-1 text-lg">Safe Space Guidelines</h3>
+            <p className="font-ui text-sm text-muted-foreground/90 leading-relaxed">
               All rooms support anonymous communication. Be respectful, supportive, and remember that everyone here is on their own journey.
               If you're in crisis, please use our emergency helplines.
             </p>
@@ -60,7 +58,7 @@ const ChatRooms = () => {
 
       {/* Bottom Notice */}
       <div className="text-center mt-12 p-6 rounded-lg bg-muted/50">
-        <p className="text-sm text-muted-foreground">
+        <p className="font-ui text-sm text-muted-foreground/90 leading-relaxed">
           Remember: If you're experiencing thoughts of self-harm or suicide, please reach out to our 
           <Button variant="link" className="px-1 h-auto font-normal" asChild>
             <span className="text-emergency cursor-pointer"> emergency helplines </span>

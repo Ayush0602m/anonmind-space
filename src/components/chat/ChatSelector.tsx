@@ -53,26 +53,34 @@ export const ChatSelector = ({ onRoomSelect }: ChatSelectorProps) => {
     
 
       {/* Room Selection */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-2 gap-1 h-full">
         {chatRooms.map((room) => (
-          <Card key={room.id} className="hover:shadow-lg transition-all cursor-pointer">
-            <CardHeader>
-              <div className="flex items-center justify-between">
-                <CardTitle className="text-lg">{room.name}</CardTitle>
-              
-              </div>
-              <CardDescription>{room.description}</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <Button 
-                onClick={() => handleRoomJoin(room.id, room.name)}
-                className="w-full"
-              >
-                <MessageCircle className="w-4 h-4 mr-2" />
-                Join Room
-              </Button>
-            </CardContent>
-          </Card>
+      <Card
+  key={room.id}
+  className="rounded-2xl border border-white/5 bg-[#050505] transition-all duration-300 hover:border-violet-400/10 hover:bg-[#080808]"
+>
+  <CardHeader className="space-y-5 p-6">
+
+    <div className="space-y-1">
+      <CardTitle className="font-heading text-xl font-medium tracking-tight text-zinc-100">
+        {room.name}
+      </CardTitle>
+
+      <CardDescription className="text-sm font-normal text-zinc-500">
+        {room.description}
+      </CardDescription>
+    </div>
+
+    <Button
+      onClick={() => handleRoomJoin(room.id, room.name)}
+      className="h-10 w-fit rounded-2 bg-red-600 text-sm font-normal text-zinc-200 transition-all duration-300 hover:bg-black align-left"
+    >
+      <MessageCircle className="mr-2 h-4 " />
+      Join Room
+    </Button>
+
+  </CardHeader>
+</Card>
         ))}
       </div>
 

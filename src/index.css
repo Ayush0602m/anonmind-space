@@ -1,3 +1,11 @@
+@import url("@fontsource/inter/400.css");
+@import url("@fontsource/inter/500.css");
+@import url("@fontsource/inter/600.css");
+@import url("@fontsource/inter/700.css");
+@import url("@fontsource/sora/600.css");
+@import url("@fontsource/sora/700.css");
+@import url("@fontsource/sora/800.css");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -52,13 +60,13 @@ All colors MUST be HSL - AMOLED Black Theme
     /* AMOLED gradients */
     --gradient-primary: linear-gradient(
       135deg,
-      hsl(195 100% 65%),
+      hsl(0, 0%, 87%),
       hsl(260 50% 60%)
     );
 
     --gradient-healing: linear-gradient(
       135deg,
-      hsl(155 60% 45%),
+      hsl(155, 47%, 37%),
       hsl(195 100% 65%)
     );
 
@@ -137,6 +145,10 @@ All colors MUST be HSL - AMOLED Black Theme
     @apply border-border;
   }
 
+  html {
+    @apply font-sans antialiased;
+  }
+
   html,
   body {
     @apply bg-background text-foreground;
@@ -144,6 +156,25 @@ All colors MUST be HSL - AMOLED Black Theme
   }
 
   body {
+    @apply font-sans text-base leading-7 tracking-normal;
     background-color: hsl(var(--background));
+  }
+}
+
+@layer utilities {
+  .font-ui {
+    @apply font-sans tracking-normal;
+  }
+
+  .font-heading {
+    @apply font-display font-semibold tracking-tight text-balance;
+  }
+
+  .font-hero {
+    @apply font-display font-extrabold tracking-[-0.04em] leading-[0.95] text-balance;
+  }
+
+  .font-section {
+    @apply font-display font-semibold tracking-tight leading-tight text-balance;
   }
 }

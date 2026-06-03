@@ -137,8 +137,8 @@ const Helplines = () => {
     <div className="container mx-auto px-4 py-8">
       {/* Header */}
       <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold mb-4">Emergency Mental Health Helplines</h1>
-        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+        <h1 className="font-hero text-4xl md:text-5xl mb-4">Emergency Mental Health Helplines</h1>
+        <p className="font-ui text-xl text-muted-foreground/90 max-w-3xl mx-auto leading-relaxed">
           Immediate support when you need it most. All helplines are staffed by trained professionals and volunteers.
           If you're in immediate danger, call emergency services (100/108).
         </p>
@@ -149,8 +149,8 @@ const Helplines = () => {
         <CardContent className="flex items-center space-x-4 pt-6">
           <Phone className="w-8 h-8 text-emergency flex-shrink-0" />
           <div>
-            <h3 className="font-semibold mb-1 text-emergency">In Immediate Crisis?</h3>
-            <p className="text-sm text-muted-foreground">
+            <h3 className="font-heading mb-1 text-lg text-emergency">In Immediate Crisis?</h3>
+            <p className="font-ui text-sm text-muted-foreground/90 leading-relaxed">
               If you're having thoughts of suicide or self-harm, don't wait. Call any of the crisis helplines below immediately.
               You don't have to face this alone.
             </p>
@@ -238,12 +238,12 @@ const Helplines = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Card>
           <CardHeader>
-            <CardTitle className="flex items-center space-x-2">
+            <CardTitle className="flex items-center space-x-2 text-lg">
               <Shield className="w-5 h-5 text-safe" />
               <span>What to Expect</span>
             </CardTitle>
           </CardHeader>
-          <CardContent className="space-y-3 text-sm">
+          <CardContent className="space-y-3 text-sm font-ui leading-relaxed text-muted-foreground/90">
             <p>• Trained volunteers and professionals will listen without judgment</p>
             <p>• All calls are confidential and anonymous</p>
             <p>• You can share as much or as little as you're comfortable with</p>
@@ -254,7 +254,7 @@ const Helplines = () => {
 
         <Card>
           <CardHeader>
-            <CardTitle className="flex items-center space-x-2">
+            <CardTitle className="flex items-center space-x-2 text-lg">
               <Heart className="w-5 h-5 text-healing" />
               <span>Remember</span>
             </CardTitle>
